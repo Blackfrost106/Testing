@@ -23,6 +23,8 @@ protected:
 
 	/** Called for side to side input */
 	void MoveRight(float Val);
+	/** Called for forwards and backwards input */
+	void MoveForward(float Value);
 
 	/** Handle touch inputs. */
 	void TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location);

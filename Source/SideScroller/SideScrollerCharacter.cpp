@@ -54,6 +54,7 @@ void ASideScrollerCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASideScrollerCharacter::MoveRight);
+	PlayerInputComponent->BindAxis("MoveForward", this, &ASideScrollerCharacter::MoveForward);
 
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ASideScrollerCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ASideScrollerCharacter::TouchStopped);
@@ -62,7 +63,11 @@ void ASideScrollerCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 void ASideScrollerCharacter::MoveRight(float Value)
 {
 	// add movement in that direction
-	AddMovementInput(FVector(0.f,-1.f,0.f), Value);
+	AddMovementInput(FVector(0.0f,-1.0f,0.0f), Value);
+}
+void ASideScrollerCharacter::MoveForward(float Value)
+{
+	AddMovementInput(FVector(-1.0,0.0f,0.0f), Value);
 }
 
 void ASideScrollerCharacter::TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location)
