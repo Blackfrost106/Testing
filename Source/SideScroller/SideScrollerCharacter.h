@@ -37,6 +37,8 @@ protected:
 	// End of APawn interface
 
 
+
+
 public:
 	ASideScrollerCharacter();
 
@@ -44,4 +46,10 @@ public:
 	FORCEINLINE class UCameraComponent* GetSideViewCameraComponent() const { return SideViewCameraComponent; }
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	bool MoveForwards = false;
+
+protected:
+	virtual void Tick(float deltaTime);
 };

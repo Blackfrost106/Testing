@@ -6,6 +6,8 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Engine/Engine.h"
+#include "Kismet/KismetStringLibrary.h"
 
 ASideScrollerCharacter::ASideScrollerCharacter()
 {
@@ -43,6 +45,16 @@ ASideScrollerCharacter::ASideScrollerCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+
+
+}
+
+
+void ASideScrollerCharacter::Tick(float deltaTime)
+{
+	Super::Tick(deltaTime);
+
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -67,7 +79,11 @@ void ASideScrollerCharacter::MoveRight(float Value)
 }
 void ASideScrollerCharacter::MoveForward(float Value)
 {
-	AddMovementInput(FVector(-1.0,0.0f,0.0f), Value);
+	if(MoveForwards == true)
+{
+	AddMovementInput(FVector(-1.0, 0.0f, 0.0f), Value);
+	
+}
 }
 
 void ASideScrollerCharacter::TouchStarted(const ETouchIndex::Type FingerIndex, const FVector Location)
