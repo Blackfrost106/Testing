@@ -49,7 +49,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	bool MoveForwards = false;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	bool IsPushing = false;
 protected:
 	virtual void Tick(float deltaTime);
 };
