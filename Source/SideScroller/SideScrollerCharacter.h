@@ -48,9 +48,11 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	bool MoveForwards = false;
+		bool AllowMovement;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
-	bool IsPushing = false;
+		bool MoveForwards;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+		bool IsPushing;
 protected:
 	virtual void Tick(float deltaTime);
 };

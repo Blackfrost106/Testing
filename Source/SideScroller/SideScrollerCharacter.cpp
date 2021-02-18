@@ -46,7 +46,9 @@ ASideScrollerCharacter::ASideScrollerCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
-
+	MoveForwards = false;
+	IsPushing = false;
+	AllowMovement = true;
 
 }
 
@@ -75,11 +77,12 @@ void ASideScrollerCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 void ASideScrollerCharacter::MoveRight(float Value)
 {
 	// add movement in that direction
+	if(AllowMovement)
 	AddMovementInput(FVector(0.0f,-1.0f,0.0f), Value);
 }
 void ASideScrollerCharacter::MoveForward(float Value)
 {
-	if(MoveForwards == true)
+	if(MoveForwards && AllowMovement)
 {
 	AddMovementInput(FVector(-1.0, 0.0f, 0.0f), Value);
 	
